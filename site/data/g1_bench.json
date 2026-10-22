@@ -1,0 +1,38 @@
+{
+ "gpu": "NVIDIA GeForce GTX 1650 Ti",
+ "rows": [
+  {
+   "num_envs": 256,
+   "steps_per_s_median": 2408,
+   "peak_vram_mib": 1122,
+   "full_run_hours_estimate": 7.1
+  },
+  {
+   "num_envs": 512,
+   "steps_per_s_median": 5000,
+   "peak_vram_mib": 1331,
+   "full_run_hours_estimate": 6.8
+  },
+  {
+   "num_envs": 1024,
+   "steps_per_s_median": 7165,
+   "peak_vram_mib": 1522,
+   "full_run_hours_estimate": 9.5
+  },
+  {
+   "num_envs": 2048,
+   "steps_per_s_median": 9964,
+   "peak_vram_mib": 1609,
+   "full_run_hours_estimate": 13.7
+  },
+  {
+   "num_envs": 4096,
+   "steps_per_s_median": 11557,
+   "peak_vram_mib": 2745,
+   "full_run_hours_estimate": 23.6
+  }
+ ],
+ "upstream_num_envs": 4096,
+ "full_run": "10001 iterations x 24 steps x num_envs",
+ "source": "usage/g1-bench-1650ti-20261021/summary.json"
+}

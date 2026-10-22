@@ -1,0 +1,31 @@
+{
+    admin 127.0.0.1:2019
+}
+
+rlsok.com {
+    root * /srv/rlsok/current
+    encode zstd gzip
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy strict-origin-when-cross-origin
+        X-Frame-Options DENY
+        Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'"
+        Permissions-Policy "camera=(), microphone=(), geolocation=()"
+        -Server
+    }
+    @old path /docs /docs/* /pricing /download /learn/* /integrations/* /compare/* /trust /security /contributors
+    redir @old /legacy.html 302
+
+    # Downloads moved to GitHub Releases. Installed apps <= 0.1.5 fetch the CAD add-on from this old URL
+    # (the app checks its SHA-256, which is unchanged), so it must keep resolving.
+    redir /downloads/RLSOK-cad-addon-1-win64.zip https://github.com/ZqiEE/rlsok-engineering/releases/download/cad-addon-1/RLSOK-cad-addon-1-win64.zip 302
+    redir /downloads/RLSOK-bird-R1-build-package.zip https://github.com/ZqiEE/rlsok-engineering/releases/download/bird-r1/RLSOK-bird-R1-build-package.zip 302
+    @oldinstaller path_regexp ^/downloads/RLSOK-[0-9.]+-windows-x64\.zip$
+    redir @oldinstaller https://github.com/ZqiEE/rlsok-engineering/releases/latest 302
+
+    file_server
+}
+
+http://www.rlsok.com {
+    redir https://rlsok.com{uri} permanent
+}

@@ -1,0 +1,20 @@
+[Unit]
+Description=RLSOK website: deploy the newest site-* tag from GitHub (self-check, atomic switch, auto rollback)
+Wants=network-online.target
+After=network-online.target caddy.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/rlsok-pull-deploy
+TimeoutStartSec=600
+Nice=10
+# hardening: the job only needs to write the site tree, its log and its lock
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/srv/rlsok /var/log /run
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes

@@ -1,0 +1,19 @@
+
+:root{--bg:#fcfcfb;--panel:#ffffff;--ink:#0b0b0b;--ink2:#52514e;--muted:#8a8984;--line:#e4e3df;--accent:#2a78d6;
+--good:#0ca30c;--bad:#d03b3b;--warn:#b37a00;--code:#f4f3f0}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1a19;--panel:#222221;--ink:#f0efec;--ink2:#c3c2b7;--muted:#8f8e86;--line:#383835;
+--accent:#3987e5;--good:#3fbf3f;--bad:#e66767;--warn:#e0a52a;--code:#2a2a28}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:32px 16px 64px}h1{font-size:26px;margin:0 0 4px}h2{font-size:19px;margin:36px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+h3{font-size:16px;margin:20px 0 8px}.sub{color:var(--ink2)}.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
+.verdict{font-size:17px;font-weight:600}.pill{display:inline-block;white-space:nowrap;border-radius:999px;padding:1px 10px;font-size:13px;font-weight:600;border:1px solid currentColor}
+.ok{color:var(--good)}.no{color:var(--bad)}.mid{color:var(--warn)}table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}th{color:var(--ink2);font-weight:600}
+td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}pre,code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px}
+pre{background:var(--code);padding:10px 12px;border-radius:8px;overflow:auto;max-height:420px}.scroll{overflow-x:auto}
+details{margin:8px 0}summary{cursor:pointer;font-weight:600}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+.chart{position:relative}.chart svg{width:100%;height:auto;display:block}.chart .tip{position:absolute;pointer-events:none;background:var(--panel);border:1px solid var(--line);
+border-radius:6px;padding:2px 8px;font-size:12px;display:none;white-space:nowrap}.kv td:first-child{color:var(--ink2);width:30%}
+
+.rs0{display:none}
+@media(max-width:700px){table{display:block;overflow-x:auto;max-width:100%}pre,code{white-space:pre-wrap;word-break:break-word}svg,img{max-width:100%;height:auto}td,th,.sub,span,code,a,p,li{overflow-wrap:anywhere;word-break:break-word}body,main,section,article,div,header,footer{max-width:100%;min-width:0}}

@@ -1,0 +1,4 @@
+#!/bin/sh
+# Blocks commits that contain secrets or files over 10 MB. Enable once per clone:
+#   git config core.hooksPath .githooks
+exec python3 tools/scan_secrets.py

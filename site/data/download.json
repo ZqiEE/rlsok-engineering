@@ -1,0 +1,38 @@
+{
+ "version": "0.1.5",
+ "windows": {
+  "file": "RLSOK-0.1.5-windows-x64.zip",
+  "url": "https://github.com/ZqiEE/rlsok-engineering/releases/download/v0.1.5/RLSOK-0.1.5-windows-x64.zip",
+  "release_page": "https://github.com/ZqiEE/rlsok-engineering/releases/tag/v0.1.5",
+  "bytes": 114921762,
+  "sha256": "85337cf90ad0c7b9a1cc3ba3f59c00a7a72f6be08431f135d05292459723291b",
+  "os": "Windows 10/11 64-bit"
+ },
+ "install_test": {
+  "install_s": 16,
+  "download_s_range": [
+   92,
+   210
+  ],
+  "extract_s": 72,
+  "g1_example_s": 40.3,
+  "buck_example_s": 158.2,
+  "buck_ngspice_runs": 42,
+  "circuit_round_s": 410,
+  "source": "usage/install-test-20261021/result.json, usage/customer-walk-20261021/"
+ },
+ "cad_addon": {
+  "file": "RLSOK-cad-addon-1-win64.zip",
+  "url": "https://github.com/ZqiEE/rlsok-engineering/releases/download/cad-addon-1/RLSOK-cad-addon-1-win64.zip",
+  "bytes": 101257703,
+  "sha256": "59fbb909502db28edfb14868c673e09ce2b1f51caf4a4010a085e5d6970c06de"
+ },
+ "bird_r1": {
+  "file": "RLSOK-bird-R1-build-package.zip",
+  "url": "https://github.com/ZqiEE/rlsok-engineering/releases/download/bird-r1/RLSOK-bird-R1-build-package.zip",
+  "bytes": 7501718,
+  "sha256": "43bfd23065a05bd7a6a7996fa43bbf202a1e723d7b9de67d94b284031ccd3c42"
+ },
+ "mac": null,
+ "linux": null
+}

@@ -35,13 +35,29 @@ are distinct. A previous PASS does not validate an arbitrary new design.
 
 The evidence viewer works in a modern desktop or mobile browser without an
 account. It does **not** include native solvers or run live physics in the browser.
-A public self-contained native engineering distribution is not ready yet.
 
-`website-source.zip` contains the same public static HTML/CSS/JS, evidence
-extracts, and preview download deployed on the website. Serve the extracted
-folder with any static web server; the viewer also opens directly from disk.
-This repository currently publishes the public preview, not the full private
-development workspace or an engineering runtime installer.
+## Downloads
+
+Installers and large files are published as [GitHub Releases](https://github.com/ZqiEE/rlsok-engineering/releases),
+each with a `SHA256SUMS.txt`. Check the hash before running anything:
+
+```
+Get-FileHash .\RLSOK-0.1.5-windows-x64.zip
+```
+
+| Release | File | Contents |
+| --- | --- | --- |
+| `v0.1.5` | `RLSOK-0.1.5-windows-x64.zip` | Windows desktop app (not code-signed yet) |
+| `cad-addon-1` | `RLSOK-cad-addon-1-win64.zip` | Optional CAD add-on (build123d / OCP), installed from inside the app |
+| `bird-r1` | `RLSOK-bird-R1-build-package.zip` | Bionic bird R1: parts list with reference prices, print files, templates, flight parameters. **Simulation only, unverified** |
+
+## Website source and deployment
+
+`site/` is the exact static website served at rlsok.com (HTML/CSS/JS, media, evidence extracts).
+`site/RELEASE.sha256` lists every file. Pushing a tag named `site-YYYYMMDD.N` publishes it:
+the server checks GitHub every 5 minutes, verifies the files, switches atomically and rolls back on
+failure. See [deploy/README.md](deploy/README.md). Secrets and files over 10 MB are blocked by
+`tools/scan_secrets.py` (enable with `git config core.hooksPath .githooks`).
 
 ## Capability boundaries
 
@@ -65,4 +81,4 @@ and expected deliverable format. Do not upload credentials or confidential files
 RLSOK reuses mature tools instead of rewriting solvers. MuJoCo, ngspice, Vortex,
 Gmsh, CalculiX, OpenFOAM, OpenTURNS, and preCICE are independent projects with
 their own licenses. Referencing a tool does not imply endorsement. No solver is
-bundled in this public evidence preview.
+stored in this repository.
