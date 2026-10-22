@@ -67,25 +67,45 @@ log "START $TAG (live: $(cat "$BASE/DEPLOYED_TAG" 2>/dev/null || echo none), cur
 # 1. fetch the tag's source archive (public, no credentials)
 if [ -n "$SRC_TGZ" ]; then cp "$SRC_TGZ" "$WORK/src.tgz"; else
   curl -fsSL --proto '=https' --max-time 300 --max-filesize $((MAX_MB * 2 * 1048576)) \
-    -o "$WORK/src.tgz" "https://codeload.github.com/$REPO/tar.gz/refs/tags/$TAG" || fail "download"
+    -o "$WORK/src.tgz" "https://codeload.github.com/$REPO/tar.gz/refs/tags/$TAG" 2>"$WORK/curl.err" || fail "download: $(head -c 300 "$WORK/curl.err")"
 fi
-mkdir "$WORK/x"
-tar -xzf "$WORK/src.tgz" -C "$WORK/x" --no-same-owner --no-same-permissions || fail "extract"
-SITE="$(find "$WORK/x" -mindepth 2 -maxdepth 2 -type d -name site | head -n 1)"
-[ -n "$SITE" ] || fail "archive has no site/ directory"
-
-# 2. self-check before switching
-[ -s "$SITE/RELEASE.sha256" ] || fail "no RELEASE.sha256"
-( cd "$SITE" && sha256sum -c --quiet --strict RELEASE.sha256 ) >/dev/null 2>&1 || fail "checksum mismatch against RELEASE.sha256"
-UNLISTED="$(cd "$SITE" && find . -type f ! -name RELEASE.sha256 | sort | comm -23 - <(awk '{print $2}' RELEASE.sha256 | sort))"
-[ -z "$UNLISTED" ] || fail "files not in RELEASE.sha256: $(echo "$UNLISTED" | head -n 3 | tr '\n' ' ')"
-[ -z "$(find "$SITE" -type l)" ] || fail "symlinks in site/"
-for f in index.html start.html styles.css app.js i18n.js data/download.json; do
-  [ -s "$SITE/$f" ] || fail "missing $f"
-done
-grep -q '</html>' "$SITE/index.html" || fail "index.html looks truncated"
-python3 -c 'import json,sys; json.load(open(sys.argv[1]))' "$SITE/data/download.json" 2>/dev/null || fail "data/download.json is not valid JSON"
-SZ="$(du -sm "$SITE" | cut -f1)"; [ "$SZ" -le "$MAX_MB" ] || fail "site is ${SZ} MB > ${MAX_MB} MB"
+# 2. extract and self-check in Python (stdlib only): independent of the tar/sha256sum variants on the server,
+#    tarfile "data" filter refuses absolute paths, "..", links and devices. Errors go to the log verbatim.
+SITE="$WORK/site"
+if ! ERR="$(python3 - "$WORK/src.tgz" "$SITE" "$MAX_MB" 2>&1 <<'PY'
+import hashlib, json, sys, tarfile
+from pathlib import Path
+src, dst, max_mb = sys.argv[1], Path(sys.argv[2]), int(sys.argv[3])
+def die(msg): print(msg); sys.exit(1)
+with tarfile.open(src, "r:gz") as tf:
+    members = [m for m in tf.getmembers() if m.name.count("/") >= 1 and m.name.split("/", 2)[1] == "site"]
+    if not members: die("archive has no site/ directory")
+    if any(not (m.isfile() or m.isdir()) for m in members): die("site/ contains links or special files")
+    if sum(m.size for m in members) > max_mb * 1048576: die(f"site/ is larger than {max_mb} MB")
+    for m in members:
+        m.name = m.name.split("/", 2)[2] if m.name.count("/") >= 2 else "."
+    dst.mkdir()
+    kw = {"filter": "data"} if hasattr(tarfile, "data_filter") else {}
+    tf.extractall(dst, members=[m for m in members if m.name != "."], **kw)
+man = dst / "RELEASE.sha256"
+if not man.is_file(): die("no RELEASE.sha256")
+listed = {}
+for line in man.read_text().splitlines():
+    h, name = line.split(None, 1)
+    listed[name.strip().removeprefix("./")] = h
+bad = [n for n, h in listed.items() if not (dst / n).is_file() or hashlib.sha256((dst / n).read_bytes()).hexdigest() != h]
+if bad: die(f"checksum mismatch or missing ({len(bad)}): {' '.join(bad[:5])}")
+files = {p.relative_to(dst).as_posix() for p in dst.rglob("*") if p.is_file()} - {"RELEASE.sha256"}
+extra = sorted(files - set(listed))
+if extra: die(f"files not in RELEASE.sha256: {' '.join(extra[:5])}")
+for f in ("index.html", "start.html", "styles.css", "app.js", "i18n.js", "data/download.json"):
+    if not (dst / f).is_file() or (dst / f).stat().st_size == 0: die(f"missing {f}")
+if b"</html>" not in (dst / "index.html").read_bytes(): die("index.html looks truncated")
+json.loads((dst / "data/download.json").read_text(encoding="utf-8"))
+print(f"verified {len(listed)} files")
+PY
+)"; then fail "self-check: $ERR"; fi
+log "self-check ok: $ERR"
 
 # 3. install as a new release directory
 mv "$SITE" "$NEW"

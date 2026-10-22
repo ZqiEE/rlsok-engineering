@@ -1,0 +1,131 @@
+{
+  "schema": "rlsok.public-evidence-extract/1",
+  "kind": "Recorded native circuit simulation, not a live browser run",
+  "source_provenance": [
+    {
+      "source_relative_path": "usage/reality-engine-20261018/approved-r1/windows-physical/engine/jobs/rc_v1/result.json",
+      "source_sha256": "cb2d9adb756b40d4d6e9897cb44584171df255136be94f604075d84d77de80d8"
+    },
+    {
+      "source_relative_path": "usage/reality-engine-20261018/approved-r1/windows-physical/engine/jobs/rc_v2/result.json",
+      "source_sha256": "30e4bb0ee91785c55735bcdbbeb500804fcc86c4259e280cda98063ee29b8f0d"
+    },
+    {
+      "source_relative_path": "usage/reality-engine-20261018/approved-r1/circuit/AI_REVISION_DECISION.json",
+      "source_sha256": "1ac288b7e2b6a18187c39967c8e99033f4690636a1b993973600e87c4fe8f28c"
+    }
+  ],
+  "native_version": "stdout ** ngspice-46 shared library",
+  "before": {
+    "metrics": {
+      "v(out).initial": 0.0,
+      "v(out).final": 1.967346581369448,
+      "v(out).min": 0.0,
+      "v(out).max": 1.967346581369448,
+      "v(in).initial": 0.0,
+      "v(in).final": 5.0,
+      "v(in).min": 0.0,
+      "v(in).max": 5.0,
+      "vsense#branch.initial": 0.0,
+      "vsense#branch.final": 0.0003032653418630904,
+      "vsense#branch.min": 0.0,
+      "vsense#branch.max": 0.0004999999749950009,
+      "time.initial": 0.0,
+      "time.final": 0.005,
+      "time.min": 0.0,
+      "time.max": 0.005,
+      "sample_count": 1025,
+      "simulated_seconds": 0.005
+    },
+    "checks": [
+      {
+        "metric": "v(out).final",
+        "op": "ge",
+        "value": 4.9,
+        "actual": 1.967346581369448,
+        "passed": false
+      },
+      {
+        "metric": "v(out).max",
+        "op": "le",
+        "value": 5.001,
+        "actual": 1.967346581369448,
+        "passed": true
+      },
+      {
+        "metric": "vsense#branch.max",
+        "op": "le",
+        "value": 0.006,
+        "actual": 0.0004999999749950009,
+        "passed": true
+      },
+      {
+        "metric": "vsense#branch.min",
+        "op": "ge",
+        "value": -1e-06,
+        "actual": 0.0,
+        "passed": true
+      }
+    ],
+    "engineering_acceptance": "FAIL"
+  },
+  "after": {
+    "metrics": {
+      "v(out).initial": 0.0,
+      "v(out).final": 4.966310598484089,
+      "v(out).min": 0.0,
+      "v(out).max": 4.966310598484089,
+      "v(in).initial": 0.0,
+      "v(in).final": 5.0,
+      "v(in).min": 0.0,
+      "v(in).max": 5.0,
+      "vsense#branch.initial": 0.0,
+      "vsense#branch.final": 3.368940151560196e-05,
+      "vsense#branch.min": 0.0,
+      "vsense#branch.max": 0.004999997499672464,
+      "time.initial": 0.0,
+      "time.final": 0.005,
+      "time.min": 0.0,
+      "time.max": 0.005,
+      "sample_count": 1026,
+      "simulated_seconds": 0.005
+    },
+    "checks": [
+      {
+        "metric": "v(out).final",
+        "op": "ge",
+        "value": 4.9,
+        "actual": 4.966310598484089,
+        "passed": true
+      },
+      {
+        "metric": "v(out).max",
+        "op": "le",
+        "value": 5.001,
+        "actual": 4.966310598484089,
+        "passed": true
+      },
+      {
+        "metric": "vsense#branch.max",
+        "op": "le",
+        "value": 0.006,
+        "actual": 0.004999997499672464,
+        "passed": true
+      },
+      {
+        "metric": "vsense#branch.min",
+        "op": "ge",
+        "value": -1e-06,
+        "actual": 0.0,
+        "passed": true
+      }
+    ],
+    "engineering_acceptance": "PASS_SCOPED_SIMULATION"
+  },
+  "design_change": "Charging resistance: 10000 ohm -> 1000 ohm. Supply, capacitance, target and operating time unchanged.",
+  "limits": [
+    "Ideal circuit model only.",
+    "No physical board, thermal or manufacturing validation.",
+    "Public extract; full local engineering records are not included."
+  ]
+}

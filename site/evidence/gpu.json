@@ -1,0 +1,22 @@
+{
+  "schema": "rlsok.public-evidence-extract/1",
+  "kind": "Frozen GPU simulation holdout, not NVIDIA or fabricated-chip performance",
+  "source_provenance": [
+    {
+      "source_relative_path": "usage/holdout-20261008/independent-summary.json",
+      "source_sha256": "2c981081e786340a0150552acd67308dce52614557b9443dbd681a22e84eefa0"
+    }
+  ],
+  "output_checks": 184,
+  "numerical": "PASS",
+  "speedup_ratio": 1.0347960813899675,
+  "maximum_candidate_cycle_ratio_to_baseline": 1.0099696575639359,
+  "source_and_candidate_unchanged": true,
+  "status": "PASS",
+  "baseline": "Project-frozen Vortex-derived GPU baseline",
+  "limits": [
+    "Fixed simulation benchmarks only; not a measured commercial GPU comparison.",
+    "Complete design equivalence and full-chip power/performance/area qualification remain incomplete.",
+    "Not evidence of a manufactured GPU or general workload superiority."
+  ]
+}

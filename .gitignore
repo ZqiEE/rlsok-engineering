@@ -40,14 +40,15 @@ srv_receiver_run.sh
 site/downloads/*.zip
 !site/downloads/rlsok-evidence-preview.zip
 site/downloads/*.sha256
-dist/
-release-assets/
+/dist/
+/release-assets/
 
 # --- evidence, datasets and local working data stay in the private working tree ---
-usage/
-datasets/
-evidence/
-data/addons/
+# anchored to the repo root: site/evidence/ IS part of the website
+/usage/
+/datasets/
+/evidence/
+/data/addons/
 
 # --- tooling noise ---
 __pycache__/

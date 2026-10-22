@@ -1,0 +1,82 @@
+{
+  "schema": "rlsok.public-evidence-extract/1",
+  "kind": "Recorded coupled circuit and mechanical example",
+  "source_provenance": [
+    {
+      "source_relative_path": "usage/reality-engine-20261018/approved-r1/motor/AI_REVISION_DECISION.json",
+      "source_sha256": "0e45b3cbbe68458a127150d8058c28df49b1cfda71ffff4a83070ee0fd167cc6"
+    },
+    {
+      "source_relative_path": "usage/reality-engine-20261018/approved-r1/delivery-analysis/engine/jobs/motor_joint_analysis/result.json",
+      "source_sha256": "f7d05178063f8f4db23e18f3a01d0345248af85e9429b0ca0cf471dcdbfa604c"
+    },
+    {
+      "source_relative_path": "usage/reality-engine-20261018/approved-r1/motor/FINAL_DELIVERY.json",
+      "source_sha256": "7b7f8017f9d3dae649588902acc402e62c1f11c0d7308b1fcefbd8dc4de81cef"
+    }
+  ],
+  "before": {
+    "angle_rad": 0.07076790435773798,
+    "note": "First exchange, zero-back-EMF initial guess; not a converged solution.",
+    "engineering_acceptance": "FAIL"
+  },
+  "after": {
+    "scope": "Declared 3 V maxon118743 ideal direct-drive disk model; two actual solver exchanges and explicit SI coupling consistency.",
+    "metrics": {
+      "final_angle_rad": 0.49273013447375835,
+      "maximum_absolute_current_A": 0.43595931502797963,
+      "voltage_residual_V": 1.3038850209035058e-05,
+      "velocity_residual_rad_per_s": 0.0005548446897467585,
+      "driver_resistance_ohm": 4.7,
+      "mechanical_timestep_seconds": 0.0001,
+      "stop_seconds": 0.1
+    },
+    "checks": [
+      {
+        "metric": "final_angle_rad",
+        "op": "ge",
+        "value": 0.25,
+        "actual": 0.49273013447375835,
+        "passed": true
+      },
+      {
+        "metric": "maximum_absolute_current_A",
+        "op": "le",
+        "value": 0.5,
+        "actual": 0.43595931502797963,
+        "passed": true
+      },
+      {
+        "metric": "voltage_residual_V",
+        "op": "le",
+        "value": 0.001,
+        "actual": 1.3038850209035058e-05,
+        "passed": true
+      },
+      {
+        "metric": "velocity_residual_rad_per_s",
+        "op": "le",
+        "value": 0.01,
+        "actual": 0.0005548446897467585,
+        "passed": true
+      }
+    ],
+    "assumptions": [
+      "Ideal direct drive. No gearbox loss, cogging, saturation or temperature variation.",
+      "Bearing and motor friction are omitted for this finite test; manufacturer no-load current does not uniquely determine static and viscous friction.",
+      "Rotor inertia is an axis-only armature; rotor spatial mass is not represented.",
+      "The rigid stop lug has negligible added mass/inertia compared with the specified disk.",
+      "Contact friction is zero; contact compliance is a chosen MuJoCo numerical model, not a validated material law.",
+      "Constant-torque input is a mechanical-only reference. A coupled result requires actual ngspice branch-current samples and back-EMF feedback, with numerical convergence checked.",
+      "No structural strength, thermal, fatigue, PWM-inductance, bearing-life or manufacturing-tolerance qualification."
+    ],
+    "limitations": [
+      "Successive waveform convergence only; no timestep convergence or measured hardware validation.",
+      "Manufacturer constants and explicitly idealized disk/contact model only."
+    ],
+    "engineering_acceptance": "PASS_SCOPED_SIMULATION"
+  },
+  "design_change": "Driver resistance: 47 ohm -> 4.7 ohm. Final coupled consistency checked using two native exchanges.",
+  "manufacturing_qualified": false,
+  "representation": "Public numerical extract, not the complete native trace package."
+}
