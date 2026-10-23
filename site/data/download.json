@@ -1,11 +1,11 @@
 {
- "version": "0.1.7",
+ "version": "0.1.8",
  "windows": {
-  "file": "RLSOK-0.1.7-windows-x64.zip",
-  "url": "https://github.com/ZqiEE/rlsok-engineering/releases/download/v0.1.7/RLSOK-0.1.7-windows-x64.zip",
-  "release_page": "https://github.com/ZqiEE/rlsok-engineering/releases/tag/v0.1.7",
-  "bytes": 128250078,
-  "sha256": "c3d873416b8a37a5d22ef0ce48730f121bc4b017cf8aecb652c43930debb8867",
+  "file": "RLSOK-0.1.8-windows-x64.zip",
+  "url": "https://github.com/ZqiEE/rlsok-engineering/releases/download/v0.1.8/RLSOK-0.1.8-windows-x64.zip",
+  "release_page": "https://github.com/ZqiEE/rlsok-engineering/releases/tag/v0.1.8",
+  "bytes": 128299700,
+  "sha256": "abe701d8dfdff9d0c453cfd2d9fdcd2787953bffe95feca00d25dfb42a3ac47c",
   "os": "Windows 10/11 64-bit"
  },
  "install_test": {
@@ -29,9 +29,9 @@
  },
  "bird_r1": {
   "file": "RLSOK-bird-R2-build-package.zip",
-  "url": "https://github.com/ZqiEE/rlsok-engineering/releases/download/bird-r2/RLSOK-bird-R2-build-package.zip",
-  "bytes": 5161107,
-  "sha256": "e52a503a4701f839669c87ffdb42a4e8e10bd9e7bf34f5e243eafd141e55300f"
+  "url": "https://github.com/ZqiEE/rlsok-engineering/releases/download/bird-r2-2/RLSOK-bird-R2-build-package.zip",
+  "bytes": 2999119,
+  "sha256": "a663eeb519669b908d2bf9ada1c68e7dabada383524b917f3f7845ba68b7f9e7"
  },
  "mac": null,
  "linux": null
