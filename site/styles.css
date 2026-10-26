@@ -217,3 +217,5 @@ details.tech[open]{padding-bottom:20px}
 
 /* spec 1.4: body text and the labels read inside it at 16px */
 .psteps li em,.date,.post .date,.fails .date,.steps li,.post .three b{font-size:16px}
+.hero h1{text-wrap:balance}
+
