@@ -13,7 +13,7 @@ rlsok.com {
         Permissions-Policy "camera=(), microphone=(), geolocation=()"
         -Server
     }
-    @old path /docs /docs/* /pricing /download /learn/* /integrations/* /compare/* /trust /security /contributors
+    @old path /docs /docs/* /learn/* /integrations/* /compare/* /trust /security /contributors
     redir @old /legacy.html 302
 
     # Downloads moved to GitHub Releases. Installed apps <= 0.1.5 fetch the CAD add-on from this old URL

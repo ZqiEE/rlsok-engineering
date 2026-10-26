@@ -2,121 +2,116 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RLSOK — Your AI designs. RLSOK checks it against reality.</title>
-<meta name="description" content="Desktop software: your AI writes the design, RLSOK runs ngspice and MuJoCo on your computer and judges real numbers against frozen criteria. Free download for Windows.">
+<title>RLSOK</title>
+<meta name="description" content="Describe it. Your AI designs it. RLSOK tests it against real physics first. Free desktop software for Windows.">
 <meta name="theme-color" content="#0b0d0c"><link rel="canonical" href="https://rlsok.com/">
-<meta property="og:title" content="RLSOK"><meta property="og:description" content="Your AI designs. RLSOK checks it against reality."><meta property="og:type" content="website"><meta property="og:url" content="https://rlsok.com/"><meta property="og:image" content="https://rlsok.com/social.svg">
-<link rel="icon" href="favicon.svg?v=19345691d2" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=17ad95bcf0">
-<script src="i18n.js?v=abfffbcae1" defer></script><script src="scope.js?v=73b29d41f4" defer></script><script src="app.js?v=f3aa625698" defer></script>
+<meta property="og:title" content="RLSOK"><meta property="og:description" content="Describe it. Your AI designs it. RLSOK tests it against real physics first."><meta property="og:type" content="website"><meta property="og:url" content="https://rlsok.com/"><meta property="og:image" content="https://rlsok.com/social.svg">
+<link rel="alternate" type="application/rss+xml" title="RLSOK dev log" href="/log/feed.en.xml">
+<link rel="icon" href="/favicon.svg?v=19345691d2" type="image/svg+xml"><link rel="stylesheet" href="/styles.css?v=024869bf0d">
+<script src="/i18n.js?v=02bd13dd49" defer></script><script src="/app.js?v=1c773e2cc1" defer></script>
 </head>
-<body>
+<body data-page="home">
 <a class="skip" href="#main" data-t="skip">Skip to content</a>
-<header class="bar">
-  <a class="brand" href="./">RLSOK</a>
-  <nav aria-label="Main"><a href="#start" data-t="navStart">Get started</a><a href="#cases" data-t="navCases">Cases</a><a href="#req" data-t="navReq">Requirements</a><a class="navdl" href="#download" data-t="navDl">Download</a><button type="button" class="lang" data-lang>中文</button></nav>
-</header>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="/">RLSOK</a>
+  <nav aria-label="Main"><a class="hide-m" href="/#work" data-t="navWork">Work</a><a class="hide-m" href="/#how" data-t="navHow">How it works</a><a class="hide-m" href="/evidence/" data-t="navEvidence">Evidence</a><a class="hide-m" href="/log/" data-t="navLog">Dev log</a><a class="navdl" href="/download/" data-t="navDl">Download</a><button type="button" class="lang" data-lang>中文</button></nav>
+</div></header>
+
 <main id="main">
-<section class="hero wrap" id="download">
-  <h1 data-th="h1">Your AI designs.<br>RLSOK checks it against reality.</h1>
-  <p class="scopesite" data-t="scopeSite"></p>
-  <div class="dl">
-    <a class="btn dlbtn" id="dl-btn" href="https://github.com/ZqiEE/rlsok-engineering/releases/download/v0.1.9/RLSOK-0.1.9-windows-x64.zip"><span id="dl-label" data-t="dlWin">Download for Windows</span><small id="dl-meta"></small></a>
-    <div class="dlside"><p id="dl-os" class="dlos"></p>
-      <div class="mob" id="mob" hidden><button type="button" class="btn alt" id="copy-link" data-t="copyLink">Copy download link</button><a class="btn alt" id="mail-link" data-t="mailLink" href="#">Email it to me</a></div>
-      <p class="dlmeta"><a href="start.html" data-t="dlHow">Install guide</a> · <span data-t="dlFree">Free · runs on your computer · your AI, your GPU</span></p>
-      <p class="sha"><span>SHA256</span> <code data-sha></code><br><a id="rel-page" href="https://github.com/ZqiEE/rlsok-engineering/releases" data-t="relPage">GitHub Releases ↗</a></p></div>
+<section class="hero wrap">
+  <div>
+    <h1 id="h1" data-t="h1_a">Describe it. Your AI designs it. RLSOK tests it against real physics first.</h1>
+    <p class="sub" data-t="heroSub"></p>
+    <div class="cta-row">
+      <a class="btn big" id="dl-main" href="/download/" data-dl><span data-t="dlWin">Download for Windows (free)</span></a>
+      <button type="button" class="btn big" id="share-main" data-share hidden><span data-t="dlPhone">Send the link to my computer</span></button>
+      <a class="btn ghost big" href="#work" data-t="seeBird" data-desktop>See how this bird was made ↓</a>
+      <button type="button" class="btn ghost big" data-follow data-mobile hidden><span data-t="follow">Follow progress</span></button>
+    </div>
+    <p class="dlline" id="dlline"></p>
   </div>
-  <p class="dlwarn" data-t="unsigned"></p>
-  <figure class="scope">
-    <ol class="steps" aria-hidden="true"><li data-s="design" data-t="s_design">Design</li><li data-s="simulate" data-t="s_simulate">Simulate</li><li data-s="fail" data-t="s_fail">Fail</li><li data-s="revise" data-t="s_revise">Read &amp; revise</li><li data-s="pass" data-t="s_pass">Pass</li></ol>
-    <canvas id="scope" role="img" aria-label="Real ngspice output voltage of run r7: revision 2 drops below the 4.85 V limit in one tolerance case; revision 3 stays inside in all 34 cases."></canvas>
-    <figcaption><span id="stage" class="stage" aria-live="off"></span><span class="src"><span data-t="fig1"></span> · <a href="reports/r7.html" data-t="report">Original report ↗</a></span></figcaption>
+  <figure class="film">
+    <video id="hero-video" muted playsinline loop autoplay preload="none" poster="/media/bird_r2f_poster.webp" aria-describedby="hero-cap">
+      <source src="/media/bird_r2f.webm" type="video/webm">
+    </video>
+    <div class="badge"><b data-t="simBadge">Simulation</b><span data-t="simBadgeSub">not real footage</span></div>
+    <figcaption id="hero-cap" data-t="heroCap"></figcaption>
   </figure>
 </section>
 
-<section class="wrap block" id="bird">
-  <div class="robot">
-    <figure class="video"><video src="media/bird_r2_mission.mp4#t=0.5" poster="media/bird_r2_poster.webp" muted playsinline controls preload="metadata" aria-describedby="fig3"></video><figcaption id="fig3" data-t="fig3"></figcaption></figure>
-    <a class="case flat" id="bird-dl" href="https://github.com/ZqiEE/rlsok-engineering/releases/download/bird-r2-3/RLSOK-bird-R2-build-package.zip"><span class="k" data-t="birdk"></span><b class="big" id="v-bird">24/24</b><span class="d" data-t="bird"></span><span class="tag warn" data-t="birdTag">Simulation only · unverified</span><span class="d" data-t="birdDl"></span><span class="d sha">SHA256 <code data-sha-bird></code></span></a>
+<section class="wrap" id="work">
+  <div class="progress">
+    <div><h2 data-t="progT">We are building an AI-designed bird in public</h2><ol class="psteps" id="psteps"></ol></div>
+    <div class="pbtns"><button type="button" class="btn" data-follow><span data-t="follow">Follow progress</span></button><a class="btn ghost" href="/log/" data-t="seeLog">Read the dev log</a></div>
   </div>
-  <figure class="chart"><img src="media/bird_r2_charts.png?v=339352d0f6" width="1560" height="936" alt="" loading="lazy"><figcaption data-t="fig3b"></figcaption></figure>
 </section>
 
-<section id="start" class="wrap block">
-  <h2 class="label" data-t="qsT">Up and running in 3 minutes</h2>
-  <ol class="quick">
-    <li><img src="media/shot-setup.webp?v=00653d30d2" width="1280" height="800" alt="" loading="lazy"><div><span class="n">01</span><b data-t="q1">Double-click “Install RLSOK”. Three setup questions.</b><span class="m" id="q1m" data-t="q1m"></span></div></li>
-    <li><img src="media/shot-examples.webp?v=25c362b570" width="1280" height="800" alt="" loading="lazy"><div><span class="n">02</span><b data-t="q2">Pick an example. Press Run.</b><span class="m" data-t="q2m"></span></div></li>
-    <li><img src="media/shot-g1.webp?v=9e8ea45a87" width="1280" height="800" alt="" loading="lazy"><div><span class="n">03</span><b data-t="q3">Read the result. Every number says verified or not.</b><span class="m" id="q3m"></span></div></li>
+<section class="wrap block" id="how">
+  <h2 data-t="howT">How it works</h2>
+  <ol class="how">
+    <li><svg viewBox="0 0 320 120" aria-hidden="true"><rect x="20" y="30" width="230" height="60" rx="30" fill="none" stroke="#a9b2ad" stroke-width="3"/><circle cx="70" cy="60" r="5" fill="#ecebe5"/><circle cx="92" cy="60" r="5" fill="#ecebe5"/><circle cx="114" cy="60" r="5" fill="#ecebe5"/><path d="M60 90 L48 112 L82 90" fill="none" stroke="#a9b2ad" stroke-width="3"/><path d="M262 60 h40 m-12 -12 l12 12 l-12 12" fill="none" stroke="#e5b94e" stroke-width="3"/></svg>
+      <h3 data-t="how1T"></h3><p data-t="how1"></p></li>
+    <li><svg viewBox="0 0 320 120" aria-hidden="true"><rect x="20" y="20" width="120" height="80" fill="none" stroke="#a9b2ad" stroke-width="3"/><path d="M36 80 L60 50 L80 64 L104 36 L124 52" fill="none" stroke="#ecebe5" stroke-width="3"/><path d="M150 60 h30" stroke="#a9b2ad" stroke-width="3"/><rect x="190" y="20" width="110" height="80" fill="none" stroke="#a9b2ad" stroke-width="3"/><path d="M200 70 C220 40 240 40 255 62 S285 80 292 50" fill="none" stroke="#e5b94e" stroke-width="3"/><path d="M200 46 h92" stroke="#ef6b5b" stroke-width="2" stroke-dasharray="6 5"/><path d="M245 108 C200 118 120 118 80 104" fill="none" stroke="#8fa3b8" stroke-width="3"/><path d="M90 96 l-12 8 l14 4" fill="none" stroke="#8fa3b8" stroke-width="3"/></svg>
+      <h3 data-t="how2T"></h3><p data-t="how2"></p></li>
+    <li><svg viewBox="0 0 320 120" aria-hidden="true"><path d="M90 40 L160 14 L230 40 L230 96 L160 116 L90 96 Z" fill="none" stroke="#a9b2ad" stroke-width="3"/><path d="M90 40 L160 64 L230 40 M160 64 V116" fill="none" stroke="#a9b2ad" stroke-width="3"/><path d="M122 28 L192 52" stroke="#e5b94e" stroke-width="3"/><path d="M250 70 l14 14 l28 -32" fill="none" stroke="#e5b94e" stroke-width="4"/></svg>
+      <h3 data-t="how3T"></h3><p data-t="how3"></p></li>
   </ol>
 </section>
 
-<section id="cases" class="wrap block">
-  <h2 class="label" data-t="casesT">Real cases</h2>
-  <div class="cases">
-    <a class="case" href="reports/r7.html"><span class="k" data-t="c7k"></span><b class="big" id="v-r7">34/34</b><span class="d" data-t="c7"></span><span class="tag warn" data-t="IDEAL">Ideal only</span></a>
-    <a class="case" href="reports/r4.html"><span class="k" data-t="c4k"></span><b class="big" data-t="c4v">6.6 W &lt; 13 W</b><span class="d" data-t="c4"></span><span class="tag" data-t="INFEASIBLE">Infeasible</span></a>
-    <a class="case" href="case.html?id=duck_level2"><span class="k" data-t="cdk"></span><b class="big ok" id="v-duck">10/10</b><span class="d" id="v-duck-d"></span><canvas class="spark" id="duck-spark" aria-hidden="true"></canvas><span class="tag ok" data-t="VERIFIED">Verified</span></a>
+<section class="wrap block">
+  <h2 data-t="trustT">Why you can trust it</h2>
+  <div class="stories">
+    <article class="story"><img data-i="story_r4" data-alt="alt_r4" src="/media/story_r4.en.webp?v=5646d5f144" width="770" height="360" alt="" loading="lazy">
+      <div><h3 data-t="s1T"></h3><p data-t="s1"></p><a class="more" href="/case.html?id=r4" data-t="more">See the full record →</a></div></article>
+    <article class="story"><img data-i="story_r7" data-alt="alt_r7" src="/media/story_r7.en.webp?v=cf7c83e474" width="1045" height="390" alt="" loading="lazy">
+      <div><h3 data-t="s2T"></h3><p data-t="s2"></p><a class="more" href="/case.html?id=r7" data-t="more">See the full record →</a></div></article>
+    <article class="story"><img data-i="story_duck" data-alt="alt_duck" src="/media/story_duck.en.webp?v=83136f1c3f" width="900" height="420" alt="" loading="lazy">
+      <div><h3 data-t="s3T"></h3><p data-t="s3"></p><a class="more" href="/case.html?id=duck_level2" data-t="more">See the full record →</a></div></article>
   </div>
 </section>
 
 <section class="wrap block">
-  <div class="robot">
-    <figure class="video"><video src="media/g1_nominal.mp4#t=0.5" muted playsinline controls preload="metadata" aria-describedby="fig2"></video><figcaption id="fig2" data-t="fig2"></figcaption></figure>
-    <a class="case flat" href="case.html?id=g1_level1"><span class="k" data-t="g1k"></span><b class="big ok" id="v-g1">10/10</b><span class="d" data-t="g1"></span><span class="tag ok" data-t="VERIFIED">Verified</span></a>
-  </div>
+  <h2 data-t="capsT">What it can do today</h2>
+  <div class="tblwrap"><table class="tbl caps stack"><tbody>
+    <tr><td data-t="cap1"></td><td data-t="cap1s"></td></tr>
+    <tr><td data-t="cap2"></td><td data-t="cap2s"></td></tr>
+    <tr><td data-t="cap3"></td><td><span data-t="cap3s"></span> · <span class="st sim" data-t="st_sim"></span></td></tr>
+    <tr><td data-t="cap4"></td><td data-t="cap4s"></td></tr>
+  </tbody></table></div>
 </section>
 
 <section class="wrap block">
-  <div class="shot2">
-    <figure><img src="media/shot-buck.webp?v=f7593d897e" width="1280" height="800" alt="" loading="lazy"><figcaption data-t="shotBuck"></figcaption></figure>
-    <figure><img src="media/shot-pc.webp?v=59a84ed2a2" width="1280" height="800" alt="" loading="lazy"><figcaption data-t="shotPc"></figcaption></figure>
-  </div>
+  <h2 data-t="reqT">Will it run on my computer?</h2>
+  <ul class="plain"><li data-t="req1"></li><li data-t="req2"></li><li data-t="req3"></li></ul>
+  <a class="linkmore" href="/download/#req" data-t="reqMore">Full requirements →</a>
 </section>
 
-<section id="req" class="wrap block">
-  <h2 class="label" data-t="reqT">System requirements</h2>
-  <div class="req">
-    <table class="eng">
-      <thead><tr><th data-t="rUse">Use</th><th data-t="rNeed">You need</th></tr></thead>
-      <tbody>
-        <tr><td data-t="rBasic">Circuits · robot walking benchmark</td><td data-t="rBasicN"></td></tr>
-        <tr><td data-t="rTrain">Robot training on this PC</td><td data-t="rTrainN"></td></tr>
-        <tr><td data-t="rCloud">No suitable GPU</td><td data-t="rCloudN"></td></tr>
-        <tr><td data-t="rTested">Tested machine</td><td>i7-10750H · 16 GB · GTX 1650 Ti 4 GB · Windows 11</td></tr>
-      </tbody>
-    </table>
-    <div>
-      <h3 class="label" data-t="tiT">What a GTX 1650 Ti (4 GB) does — measured</h3>
-      <table class="eng ti" id="ti"><tbody></tbody></table>
-    </div>
-  </div>
-  <p class="note" data-t="reqNote"></p>
+<section class="wrap block faq">
+  <h2 data-t="faqT">Questions</h2>
+  <details><summary data-t="q1"></summary><p data-t="a1"></p></details>
+  <details><summary data-t="q2"></summary><p data-t="a2"></p></details>
+  <details><summary data-t="q3"></summary><p data-t="a3"></p></details>
+  <details><summary data-t="q4"></summary><p data-t="a4"></p></details>
+  <details><summary data-t="q5"></summary><p data-t="a5"></p></details>
 </section>
 
-<section id="engines" class="wrap block">
-  <h2 class="label" data-t="engT">Engine status</h2>
-  <table class="eng">
-    <thead><tr><th data-t="eEngine">Engine</th><th data-t="eDomain">Domain</th><th data-t="eState">Status</th></tr></thead>
-    <tbody>
-      <tr><td>ngspice 46</td><td data-t="e_ngspice"></td><td><span class="tag ok" data-t="VERIFIED"></span></td></tr>
-      <tr><td>MuJoCo 3.16</td><td data-t="e_mujoco"></td><td><span class="tag ok" data-t="VERIFIED"></span></td></tr>
-      <tr><td>brax PPO</td><td data-t="e_train"></td><td><span class="tag ok" data-t="VERIFIED"></span></td></tr>
-      <tr><td>mjlab</td><td data-t="e_mjlab"></td><td><span class="tag" data-t="UNVERIFIED"></span></td></tr>
-      <tr><td>Verilator · Vortex</td><td data-t="e_rtl"></td><td><span class="tag ok" data-t="VERIFIED"></span></td></tr>
-      <tr><td>RLSOK flap-aero</td><td data-t="e_flap"></td><td><span class="tag ok" data-t="VERIFIED"></span></td></tr>
-      <tr><td>RLSOK bird-attitude</td><td data-t="e_batt"></td><td><span class="tag warn" data-t="FAILED"></span></td></tr>
-      <tr><td>RLSOK two-wing · UVLM</td><td data-t="e_bird"></td><td><span class="tag warn" data-t="FAILED"></span></td></tr>
-      <tr><td>CalculiX</td><td data-t="e_ccx"></td><td><span class="tag plan" data-t="PLANNED"></span></td></tr>
-      <tr><td>OpenFOAM</td><td data-t="e_foam"></td><td><span class="tag plan" data-t="PLANNED"></span></td></tr>
-    </tbody>
-  </table>
-  <p class="note" data-t="eNote"></p>
-</section>
-
-<section class="wrap block cta">
-  <h2 data-t="ctaT">Run it on your own computer</h2><p data-t="cta"></p><a class="btn" href="#download" data-t="ctaBtn">Download →</a>
+<section class="wrap cta">
+  <h2 data-t="ctaT">Try it on your own computer</h2><p data-t="cta"></p>
+  <div class="cta-row"><a class="btn big" href="/download/" data-dl><span data-t="dlWin">Download for Windows (free)</span></a><button type="button" class="btn big" data-share hidden><span data-t="dlPhone">Send the link to my computer</span></button><button type="button" class="btn ghost big" data-follow><span data-t="follow">Follow progress</span></button></div>
 </section>
 </main>
-<footer class="wrap foot"><span class="brand">RLSOK</span><a href="start.html" data-t="dlHow">Install guide</a><a href="https://github.com/ZqiEE/rlsok-engineering">GitHub ↗</a><a href="downloads/rlsok-evidence-preview.zip">Evidence (.zip)</a><span class="muted" data-t="footer"></span></footer>
+
+<footer class="foot"><div class="wrap">
+  <span class="brand">RLSOK</span><a href="https://github.com/ZqiEE/rlsok-engineering" data-t="footGit">GitHub</a><a href="/evidence/" data-t="navEvidence">Evidence</a><a href="/log/" data-t="navLog">Dev log</a><a href="/pricing/" data-t="footPricing">Pricing</a><a href="https://github.com/ZqiEE/rlsok-engineering/issues" data-t="footContact">Contact</a><button type="button" class="lang" data-lang>中文</button><span class="cr" data-t="footer"></span>
+</div></footer>
+
+<dialog id="dlg-follow" aria-labelledby="dlg-follow-t"><button type="button" class="x" data-close aria-label="Close">×</button>
+  <h2 id="dlg-follow-t" data-t="followT">Follow the bird</h2><p data-t="followP"></p>
+  <div class="dlist"><a class="btn ghost" id="rss-link" href="/log/feed.en.xml"><span data-t="followRss">Subscribe to the dev log (RSS)</span></a><a class="btn ghost" href="https://github.com/ZqiEE/rlsok-engineering/releases"><span data-t="followGh">Watch new releases on GitHub</span></a><button type="button" class="btn ghost" data-copy="page"><span data-t="followCopy">Copy this page’s link</span></button></div>
+</dialog>
+<dialog id="dlg-share" aria-labelledby="dlg-share-t"><button type="button" class="x" data-close aria-label="Close">×</button>
+  <h2 id="dlg-share-t" data-t="shareT">Send the download link to your computer</h2><p data-t="shareP"></p>
+  <div class="dlist"><button type="button" class="btn" data-sys-share><span data-t="shareSys">Share…</span></button><a class="btn ghost" id="mail-self" href="mailto:"><span data-t="shareMail">Email it to myself</span></a><button type="button" class="btn ghost" data-copy="dl"><span data-t="shareCopy">Copy the download link</span></button></div>
+  <code class="code" id="share-url"></code>
+</dialog>
 </body></html>

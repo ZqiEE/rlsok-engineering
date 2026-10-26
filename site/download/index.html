@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Download — RLSOK</title><meta name="description" content="Download RLSOK for Windows: three steps, what Windows may say, requirements and checksum.">
+<meta name="theme-color" content="#0b0d0c"><link rel="canonical" href="https://rlsok.com/download/">
+<link rel="icon" href="/favicon.svg?v=19345691d2" type="image/svg+xml"><link rel="stylesheet" href="/styles.css?v=024869bf0d">
+<script src="/i18n.js?v=02bd13dd49" defer></script><script src="/app.js?v=1c773e2cc1" defer></script>
+</head>
+<body data-page="download">
+<a class="skip" href="#main" data-t="skip">Skip to content</a>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="/">RLSOK</a>
+  <nav aria-label="Main"><a class="hide-m" href="/#work" data-t="navWork">Work</a><a class="hide-m" href="/#how" data-t="navHow">How it works</a><a class="hide-m" href="/evidence/" data-t="navEvidence">Evidence</a><a class="hide-m" href="/log/" data-t="navLog">Dev log</a><a class="navdl" href="/download/" aria-current="page" data-t="navDl">Download</a><button type="button" class="lang" data-lang>中文</button></nav>
+</div></header>
+
+<main id="main" class="wrap page">
+  <h1 data-t="dlH1">Download RLSOK</h1>
+  <div class="cta-row">
+    <a class="btn big" id="dl-main" href="https://github.com/ZqiEE/rlsok-engineering/releases" data-dl data-direct><span data-t="dlWin">Download for Windows (free)</span></a>
+    <button type="button" class="btn big" data-share hidden><span data-t="dlPhone">Send the link to my computer</span></button>
+  </div>
+  <p class="dlline" id="dlver"></p>
+  <p class="note" id="dl-other" data-t="dlOther" hidden></p>
+
+  <section class="block">
+    <h2 data-t="inT">Three steps</h2>
+    <ol class="steps3">
+      <li><svg viewBox="0 0 300 130" aria-hidden="true"><rect x="96" y="14" width="108" height="78" fill="none" stroke="#a9b2ad" stroke-width="3"/><path d="M150 30 v40 m-16 -16 l16 16 l16 -16" fill="none" stroke="#e5b94e" stroke-width="4"/><path d="M70 112 h160" stroke="#a9b2ad" stroke-width="3"/><path d="M70 112 h104" stroke="#e5b94e" stroke-width="5"/></svg>
+        <h3 data-t="in1T"></h3><p id="in1"></p></li>
+      <li><svg viewBox="0 0 300 130" aria-hidden="true"><path d="M40 30 h60 l10 12 h50 v66 h-120 z" fill="none" stroke="#a9b2ad" stroke-width="3"/><path d="M80 56 v40 M70 66 h20 M70 78 h20" stroke="#a9b2ad" stroke-width="3"/><path d="M172 74 h34 m-12 -12 l12 12 l-12 12" fill="none" stroke="#e5b94e" stroke-width="3"/><path d="M218 30 h40 l10 12 h14 v66 h-64 z" fill="none" stroke="#ecebe5" stroke-width="3"/></svg>
+        <h3 data-t="in2T"></h3><p data-t="in2"></p></li>
+      <li><svg viewBox="0 0 300 130" aria-hidden="true"><rect x="100" y="20" width="100" height="84" rx="8" fill="none" stroke="#ecebe5" stroke-width="3"/><path d="M128 62 l16 16 l30 -34" fill="none" stroke="#e5b94e" stroke-width="5"/><path d="M214 100 l14 22 l6 -10 l12 6 l-14 -22 l12 -2 z" fill="#ecebe5"/></svg>
+        <h3 data-t="in3T"></h3><p data-t="in3"></p></li>
+    </ol>
+  </section>
+
+  <section class="block">
+    <h2 data-t="blockT">If Windows blocks it</h2>
+    <h3 data-t="block1T"></h3><p class="muted" data-t="block1"></p>
+    <h3 data-t="block2T"></h3><p class="muted" data-t="block2"></p>
+  </section>
+
+  <section class="block">
+    <h2 data-t="firstT">What you see the first time</h2>
+    <p class="muted" data-t="firstP"></p>
+    <img class="shot" data-i="app_first" data-alt="alt_first" src="/media/app_first.en.webp?v=818d28c204" width="1440" height="900" alt="" loading="lazy">
+  </section>
+
+  <section class="block" id="req">
+    <h2 data-t="reqH">Requirements</h2>
+    <div class="tblwrap"><table class="tbl stack">
+      <thead><tr><th data-t="rUse">Use</th><th data-t="rNeed">You need</th></tr></thead>
+      <tbody>
+        <tr><td data-t="rBasic"></td><td data-t="rBasicN"></td></tr>
+        <tr><td data-t="rTrain"></td><td data-t="rTrainN"></td></tr>
+        <tr><td data-t="rCloud"></td><td data-t="rCloudN"></td></tr>
+        <tr><td data-t="rTested"></td><td>i7-10750H · 16 GB · GTX 1650 Ti 4 GB · Windows 11</td></tr>
+      </tbody>
+    </table></div>
+    <h3 class="block" data-t="tiT">What a GTX 1650 Ti (4 GB) laptop does — measured</h3>
+    <div class="tblwrap"><table class="tbl stack" id="ti"><thead><tr><th></th><th></th><th class="r" data-t="tiSrc">Source</th></tr></thead><tbody></tbody></table></div>
+    <p class="note" data-t="reqNote"></p>
+  </section>
+
+  <section class="block">
+    <details class="tech"><summary data-t="advT">Advanced: check the file was not changed</summary>
+      <p class="muted" data-t="shaP"></p>
+      <code class="code">Get-FileHash .\<span data-file>RLSOK-windows-x64.zip</span></code>
+      <p></p><code class="code" data-sha></code>
+    </details>
+  </section>
+
+  <section class="block">
+    <h2 data-t="unT">Uninstall</h2><p class="muted" data-t="unP"></p>
+    <h3 data-t="whereT"></h3><p class="muted mono" data-t="whereP"></p>
+    <h3 data-t="fbT"></h3><p class="muted"><span data-t="fbP"></span> <a class="linkmore" href="https://github.com/ZqiEE/rlsok-engineering/issues" data-t="fbLink">Open an issue →</a></p>
+  </section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <span class="brand">RLSOK</span><a href="https://github.com/ZqiEE/rlsok-engineering" data-t="footGit">GitHub</a><a href="/evidence/" data-t="navEvidence">Evidence</a><a href="/log/" data-t="navLog">Dev log</a><a href="/pricing/" data-t="footPricing">Pricing</a><a href="https://github.com/ZqiEE/rlsok-engineering/issues" data-t="footContact">Contact</a><button type="button" class="lang" data-lang>中文</button><span class="cr" data-t="footer"></span>
+</div></footer>
+
+<dialog id="dlg-share" aria-labelledby="dlg-share-t"><button type="button" class="x" data-close aria-label="Close">×</button>
+  <h2 id="dlg-share-t" data-t="shareT">Send the download link to your computer</h2><p data-t="shareP"></p>
+  <div class="dlist"><button type="button" class="btn" data-sys-share><span data-t="shareSys">Share…</span></button><a class="btn ghost" id="mail-self" href="mailto:"><span data-t="shareMail">Email it to myself</span></a><button type="button" class="btn ghost" data-copy="dl"><span data-t="shareCopy">Copy the download link</span></button></div>
+  <code class="code" id="share-url"></code>
+</dialog>
+</body></html>

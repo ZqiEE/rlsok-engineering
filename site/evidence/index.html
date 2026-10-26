@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence — RLSOK</title><meta name="description" content="How RLSOK judges results, the state of every physics engine, the full record of every case and every failure.">
+<meta name="theme-color" content="#0b0d0c"><link rel="canonical" href="https://rlsok.com/evidence/">
+<link rel="icon" href="/favicon.svg?v=19345691d2" type="image/svg+xml"><link rel="stylesheet" href="/styles.css?v=024869bf0d">
+<script src="/i18n.js?v=02bd13dd49" defer></script><script src="/scope.js?v=73b29d41f4" defer></script><script src="/app.js?v=1c773e2cc1" defer></script>
+</head>
+<body data-page="evidence">
+<a class="skip" href="#main" data-t="skip">Skip to content</a>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="/">RLSOK</a>
+  <nav aria-label="Main"><a class="hide-m" href="/#work" data-t="navWork">Work</a><a class="hide-m" href="/#how" data-t="navHow">How it works</a><a class="hide-m" href="/evidence/" aria-current="page" data-t="navEvidence">Evidence</a><a class="hide-m" href="/log/" data-t="navLog">Dev log</a><a class="navdl" href="/download/" data-t="navDl">Download</a><button type="button" class="lang" data-lang>中文</button></nav>
+</div></header>
+
+<main id="main" class="wrap page">
+  <h1 data-t="evH1">Evidence</h1>
+  <p class="lead" data-t="evLead"></p>
+
+  <h2 data-t="legendT">There are only four states</h2>
+  <div class="legend">
+    <div><span class="st hw" data-t="st_hw"></span><p data-t="st_hw_d"></p></div>
+    <div><span class="st sim" data-t="st_sim"></span><p data-t="st_sim_d"></p></div>
+    <div><span class="st prog" data-t="st_prog"></span><p data-t="st_prog_d"></p></div>
+    <div><span class="st fail" data-t="st_fail"></span><p data-t="st_fail_d"></p></div>
+  </div>
+
+  <section class="block" id="cases">
+    <h2 data-t="casesT">Full record of every case</h2>
+    <div class="cards">
+      <a class="card" href="/case.html?id=bird_r2"><span class="st sim" data-t="st_sim"></span><h3 data-t="c_bird"></h3><p data-t="c_bird_d"></p><span class="go" data-t="open">Open →</span></a>
+      <a class="card" href="/case.html?id=r7"><span class="st sim" data-t="st_sim"></span><h3 data-t="c_r7"></h3><p data-t="c_r7_d"></p><span class="go" data-t="open">Open →</span></a>
+      <a class="card" href="/case.html?id=r4"><span class="st fail" data-t="st_fail"></span><h3 data-t="c_r4"></h3><p data-t="c_r4_d"></p><span class="go" data-t="open">Open →</span></a>
+      <a class="card" href="/case.html?id=duck_level2"><span class="st sim" data-t="st_sim"></span><h3 data-t="c_duck"></h3><p data-t="c_duck_d"></p><span class="go" data-t="open">Open →</span></a>
+      <a class="card" href="/case.html?id=g1_level1"><span class="st sim" data-t="st_sim"></span><h3 data-t="c_g1"></h3><p data-t="c_g1_d"></p><span class="go" data-t="open">Open →</span></a>
+    </div>
+  </section>
+
+  <section class="block" id="engines">
+    <h2 data-t="engT">Where each physics engine stands</h2>
+    <div class="tblwrap"><table class="tbl stack">
+      <thead><tr><th data-t="engCol">Engine</th><th data-t="engUse">Used for</th><th class="r" data-t="engState">State</th></tr></thead>
+      <tbody>
+        <tr class="engrow"><td>ngspice 46</td><td><span data-t="eng_ngspice"></span><details><summary data-t="details">Details</summary><p data-t="eng_ngspice_d"></p></details></td><td class="r"><span class="st sim" data-t="st_sim"></span></td></tr>
+        <tr class="engrow"><td>MuJoCo 3.16</td><td><span data-t="eng_mujoco"></span><details><summary data-t="details">Details</summary><p data-t="eng_mujoco_d"></p></details></td><td class="r"><span class="st sim" data-t="st_sim"></span></td></tr>
+        <tr class="engrow"><td>brax PPO</td><td><span data-t="eng_brax"></span><details><summary data-t="details">Details</summary><p data-t="eng_brax_d"></p></details></td><td class="r"><span class="st sim" data-t="st_sim"></span></td></tr>
+        <tr class="engrow"><td>mjlab</td><td><span data-t="eng_mjlab"></span><details><summary data-t="details">Details</summary><p data-t="eng_mjlab_d"></p></details></td><td class="r"><span class="st prog" data-t="st_prog"></span></td></tr>
+        <tr class="engrow"><td>Verilator</td><td><span data-t="eng_rtl"></span><details><summary data-t="details">Details</summary><p data-t="eng_rtl_d"></p></details></td><td class="r"><span class="st sim" data-t="st_sim"></span></td></tr>
+        <tr class="engrow"><td>RLSOK</td><td><span data-t="eng_xwing"></span><details><summary data-t="details">Details</summary><p data-t="eng_xwing_d"></p></details></td><td class="r"><span class="st sim" data-t="st_sim"></span></td></tr>
+        <tr class="engrow"><td>RLSOK</td><td><span data-t="eng_twowing"></span><details><summary data-t="details">Details</summary><p data-t="eng_twowing_d"></p></details></td><td class="r"><span class="st fail" data-t="st_fail"></span></td></tr>
+        <tr class="engrow"><td>RLSOK</td><td><span data-t="eng_att"></span><details><summary data-t="details">Details</summary><p data-t="eng_att_d"></p></details></td><td class="r"><span class="st fail" data-t="st_fail"></span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="note"><b data-t="planT"></b> · <span data-t="planP"></span></p>
+  </section>
+
+  <section class="block">
+    <h2 data-t="scopeT">Real output voltage of power-supply revisions 2 and 3</h2>
+    <figure class="scope">
+      <ol class="steps" aria-hidden="true"><li data-s="design" data-t="st_design">Design</li><li data-s="simulate" data-t="st_simulate">Simulate</li><li data-s="fail" data-t="st_fail2">Miss</li><li data-s="revise" data-t="st_revise">Read and revise</li><li data-s="pass" data-t="st_pass">Pass</li></ol>
+      <canvas id="scope" role="img" data-alt="scopeCap"></canvas>
+      <figcaption><span id="stage" class="stage" aria-live="off"></span><span data-t="scopeCap"></span></figcaption>
+    </figure>
+  </section>
+
+  <section class="block" id="g1">
+    <h2 data-t="c_g1">Unitree G1 robot walking</h2>
+    <figure class="fig"><video src="/media/g1_nominal.mp4#t=0.5" muted playsinline controls preload="metadata"></video><figcaption data-t="g1Note"></figcaption></figure>
+  </section>
+
+  <section class="block" id="failures">
+    <h2 data-t="failT">Failure record</h2>
+    <p class="muted" data-t="failP"></p>
+    <ul class="plain fails" id="fails"></ul>
+  </section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <span class="brand">RLSOK</span><a href="https://github.com/ZqiEE/rlsok-engineering" data-t="footGit">GitHub</a><a href="/evidence/" data-t="navEvidence">Evidence</a><a href="/log/" data-t="navLog">Dev log</a><a href="/pricing/" data-t="footPricing">Pricing</a><a href="https://github.com/ZqiEE/rlsok-engineering/issues" data-t="footContact">Contact</a><button type="button" class="lang" data-lang>中文</button><span class="cr" data-t="footer"></span>
+</div></footer>
+</body></html>

@@ -1,11 +1,11 @@
 {
- "version": "0.1.9",
+ "version": "0.2.0",
  "windows": {
-  "file": "RLSOK-0.1.9-windows-x64.zip",
-  "url": "https://github.com/ZqiEE/rlsok-engineering/releases/download/v0.1.9/RLSOK-0.1.9-windows-x64.zip",
-  "release_page": "https://github.com/ZqiEE/rlsok-engineering/releases/tag/v0.1.9",
-  "bytes": 128513606,
-  "sha256": "f590bf2f27b981bca22583ce962e048aa4a7052690af0553f54c0e36f7574bfc",
+  "file": "RLSOK-0.2.0-windows-x64.zip",
+  "url": "https://github.com/ZqiEE/rlsok-engineering/releases/download/v0.2.0/RLSOK-0.2.0-windows-x64.zip",
+  "release_page": "https://github.com/ZqiEE/rlsok-engineering/releases/tag/v0.2.0",
+  "bytes": 128456069,
+  "sha256": "e9276d8f97fa42fd3210621e8345aeeb20d8a9788d1979a9798f956cdfbd48bf",
   "os": "Windows 10/11 64-bit"
  },
  "install_test": {
